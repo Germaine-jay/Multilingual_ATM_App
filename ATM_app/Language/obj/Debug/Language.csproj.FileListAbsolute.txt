@@ -1,0 +1,8 @@
+C:\Users\user\source\repos\ATM_app\Language\bin\Debug\Language.exe.config
+C:\Users\user\source\repos\ATM_app\Language\bin\Debug\Language.exe
+C:\Users\user\source\repos\ATM_app\Language\bin\Debug\Language.pdb
+C:\Users\user\source\repos\ATM_app\Language\obj\Debug\Language.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\ATM_app\Language\obj\Debug\Language.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\source\repos\ATM_app\Language\obj\Debug\Language.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ATM_app\Language\obj\Debug\Language.exe
+C:\Users\user\source\repos\ATM_app\Language\obj\Debug\Language.pdb
