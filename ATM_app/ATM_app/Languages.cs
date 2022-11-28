@@ -9,13 +9,13 @@ namespace ATM_app
 {
     public class Languages
     {
-        public static LoginUser loginUSer = new LoginUser();
-        public BankAccount account = new BankAccount(loginUSer.UserName);
+
+        public BankAccount account = new BankAccount(LoginUser.UserName);
         public void Language()
         {
-            Console.Clear();
+            
             Console.WriteLine("choose a language:\n\n Enter 1 for English\n pịa 2 maka igbo\n te 3 fun yoruba");
-            var SelectedLanguage = int.Parse(Console.ReadLine());
+            int SelectedLanguage = int.Parse(Console.ReadLine());
 
             Console.WriteLine(SelectedLanguage);
             switch (SelectedLanguage)
@@ -23,8 +23,8 @@ namespace ATM_app
                 case 1:
                     Console.Clear();
                     Console.WriteLine("English");
-                    Console.WriteLine("\nEnter\n 1 for withdrawal\n 2 for Deposition\n 3 for Transfer\n 4 Check Balance");
-                    var EnglishOption = int.Parse(Console.ReadLine());
+                    Console.WriteLine("\nEnter\n 1 for withdrawal\n 2 for Deposit\n 3 for Transfer\n 4 Check Balance");
+                    int EnglishOption = int.Parse(Console.ReadLine());
 
                     EnglishAction(EnglishOption);
                     break;
@@ -33,7 +33,7 @@ namespace ATM_app
                     Console.Clear();
                     Console.WriteLine("Igbo");
                     Console.WriteLine("\n pia 1 ka idoral\n pia 2 itinye ego\n pia 3 ị ga-ebufe\n pia 4 lelee itule");
-                    var IgboOption = int.Parse(Console.ReadLine());
+                    int IgboOption = int.Parse(Console.ReadLine());
 
                     IgboAction(IgboOption);
 
@@ -43,7 +43,8 @@ namespace ATM_app
                     Console.Clear();
                     Console.WriteLine("yoruba");
                     Console.WriteLine("\n te 1 fun yokuro\n te 2 fun idogo\n te 3 fun gbigbe\n te 4 ṣayẹwo iwontunwonsi");
-                    var YorubaIption = int.Parse(Console.ReadLine());
+                    int YorubaIption = int.Parse(Console.ReadLine());
+
                     YorubaAction(YorubaIption);
 
                     break;
@@ -51,7 +52,6 @@ namespace ATM_app
                 default:
                     Console.WriteLine("invalid input");
                     break;
-
             }
         }
 
@@ -63,7 +63,7 @@ namespace ATM_app
                 case 1:
                     Console.Clear();
                     Console.WriteLine("Enter Amount to withdraw");
-                    var withdrawInenglish = int.Parse(Console.ReadLine());
+                    decimal withdrawInenglish = decimal.Parse(Console.ReadLine());
 
                     account.Withdrawal(withdrawInenglish, DateTime.Now, "paga");
                     Console.WriteLine("Withdrawal sucessful, Your new balance is {0}", account.Balance);
@@ -72,7 +72,7 @@ namespace ATM_app
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Enter Amount to Deposit");
-                    var DepositInenglish = int.Parse(Console.ReadLine());
+                    decimal DepositInenglish = decimal.Parse(Console.ReadLine());
 
                     account.Deposit(DepositInenglish, DateTime.Now, "paga");
                     Console.WriteLine("Deposition sucessful, Your new balance is {0}",account.Balance);
@@ -81,7 +81,7 @@ namespace ATM_app
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Enter Amount to transfer");
-                    var Transferinyoruba = int.Parse(Console.ReadLine());
+                    decimal Transferinyoruba = decimal.Parse(Console.ReadLine());
 
                     account.Transfer(Transferinyoruba, DateTime.Now, "paga");
                     Console.WriteLine("Transfer sucessful, Your new balance is {0}", account.Balance);
@@ -89,8 +89,8 @@ namespace ATM_app
                     break;
                 case 4:
                     Console.Clear();
-                    BankAccount balance = new BankAccount(loginUSer.UserName);
-                    Console.WriteLine("Your Current Account Balance is ${0}{1}",balance.Balance, balance.Owner);
+                    BankAccount balance = new BankAccount(LoginUser.UserName);
+                    Console.WriteLine("Your Current Account Balance is ${0},{1}",balance.Balance, balance.Owner);
 
                     break;
                 default:
@@ -100,33 +100,33 @@ namespace ATM_app
             }
         }
 
-        public void IgboAction(int action)
+        public void IgboAction(decimal action)
         {
             switch (action)
             {
                 case 1:
                     Console.Clear();
                     Console.WriteLine("Tinye ego iji wepụ");
-                    var WithdrawInIgbo = int.Parse(Console.ReadLine());
+                    decimal WithdrawInIgbo = decimal.Parse(Console.ReadLine());
 
                     account.Withdrawal(WithdrawInIgbo, DateTime.Now, "paga");
-                    Console.WriteLine("Withdrawal sucessful, Your new balance is {0}", account.Balance);
+                    Console.WriteLine("ndoro ego na-aga nke oma, nguzozi ọhuru gi bu {0}", account.Balance);
                     break;
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Tinye ego na nkwụnye ego");
-                    var DepositInIgbo = int.Parse(Console.ReadLine());
+                    decimal DepositInIgbo = decimal.Parse(Console.ReadLine());
 
                     account.Deposit(DepositInIgbo, DateTime.Now, "paga");
-                    Console.WriteLine("Deposition sucessful, Your new balance is {0}", account.Balance);
+                    Console.WriteLine("Ntinye ego, ihe iga nke oma, nguzozi ohuru gi bu {0}", account.Balance);
                     break;
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Tinye ego ị ga-ebufe");
-                    var TransferInIgbo = int.Parse(Console.ReadLine());
+                    decimal TransferInIgbo = decimal.Parse(Console.ReadLine());
 
                     account.Transfer(TransferInIgbo, DateTime.Now, "paga");
-                    Console.WriteLine("Transfer sucessful, Your new balance is {0}", account.Balance);
+                    Console.WriteLine("nyefee ịga nke oma, nguzozi ohuru gi bu {0}", account.Balance);
                     break;
                 case 4:
                     Console.Clear();
@@ -134,38 +134,38 @@ namespace ATM_app
                     
                     break;
                 default:
-                    Console.WriteLine("invalid input");
+                    Console.WriteLine("ntinye na-ezighi ezi");
                     break;
             }
         }
 
-        public void YorubaAction(int action)
+        public void YorubaAction(decimal action)
         {
             switch (action)
             {
                 case 1:
                     Console.Clear();
                     Console.WriteLine("Elo ni o fe lati yokuro");
-                    var TransferInYoruba = int.Parse(Console.ReadLine());
+                    decimal TransferInYoruba = decimal.Parse(Console.ReadLine());
 
                     account.Withdrawal(TransferInYoruba, DateTime.Now, "paga");
-                    Console.WriteLine("Withdrawal sucessful, Your new balance is {0}", account.Balance);
+                    Console.WriteLine("Yiyo kuro ni aseyori, ati pe iwontunwonsi tuntun re je {0}", account.Balance);
                     break;
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Elo ni o fe lati beebe");
-                    var DepositInYoruba = int.Parse(Console.ReadLine());
+                    decimal DepositInYoruba = decimal.Parse(Console.ReadLine());
 
                     account.Deposit(DepositInYoruba, DateTime.Now, "paga");
-                    Console.WriteLine("Deposition sucessful, Your new balance is {0}", account.Balance);
+                    Console.WriteLine("Ifipamo je aseyori, iwontunwọnsi tuntun re je {0}", account.Balance);
                     break;
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Elo ni o fe lati gbe");
-                    var TransferInyoruba = int.Parse(Console.ReadLine());
+                    decimal TransferInyoruba = decimal.Parse(Console.ReadLine());
 
                     account.Transfer(TransferInyoruba, DateTime.Now, "paga");
-                    Console.WriteLine("Transfer sucessful, Your new balance is {0}", account.Balance);
+                    Console.WriteLine("gbigbe aseyori, titun re iwontunwonsi ni  {0}", account.Balance);
                     break;
                 case 4:
                     Console.Clear();
@@ -173,9 +173,8 @@ namespace ATM_app
                     
                     break;
                 default:
-                    Console.WriteLine("invalid input");
-                    break;
-                    
+                    Console.WriteLine("aisedeede igbewole");
+                    break;                 
             }
         }
     }

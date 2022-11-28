@@ -9,30 +9,110 @@ namespace ATM_app
     public class CreateNewUser
     {
         
-        public Dictionary<string, string> User = new Dictionary<string, string>()
+        public static Dictionary<string, string> user = new Dictionary<string, string>()
         {
             { "germaine", "1234"}, {"ositadimma", "3456"}
         };
 
+        public int LengthOfPassword = 4;
+
         public void CreateUser()
         {
-            Console.WriteLine("Create a new account ");
+            Console.WriteLine("\n  choose a language to create new user:\n\n  Enter 1 for English\n\n  pia 2 maka igbo\n\n  te 3 fun yoruba");
+            Console.WriteLine();
 
-            Console.WriteLine("Enter username");
+            var selectLanguage = int.Parse(Console.ReadLine());
+            var Selected = selectLanguage;
+
+            switch (Selected)
+            {
+                case 1:
+                    Console.WriteLine("Create a new account ");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Meputa akauntu ohuru");
+                    break;
+
+                case 3:
+                    Console.WriteLine("Ṣẹda iroyin titun");
+                    break;
+
+                default: Console.WriteLine("Invalid Input");
+                    return;
+            }
+
+            Console.Clear();
+            switch (Selected)
+            {
+                case 1:
+                    Console.WriteLine("Enter username");
+                    break;
+
+                case 2:
+                    Console.WriteLine("tinye aha njirimara");
+                    break;
+
+                case 3:
+                    Console.WriteLine("tẹ orukọ olumulo");
+                    break;
+                default: Console.WriteLine("Invalid Input");
+
+                    return;
+            }
+
             string username = Console.ReadLine();
 
-            Console.WriteLine("Enter password");
+            switch (Selected)
+            {
+                case 1:
+                    Console.WriteLine("Enter password");
+                    break;
+
+                case 2:
+                    Console.WriteLine("tinye paswọọdụ");
+                    break;
+
+                case 3:
+                    Console.WriteLine("te oroigbaniwole");
+                    break;
+
+                default: Console.WriteLine("Invalid Input"); 
+                    return;
+            }         
+
+
             string password = Console.ReadLine();
 
 
-            bool StillAlive = true;
-            while (StillAlive)
+            bool validation = true;
+            while (validation)
             {
-                if (password.Length != 4 || int.TryParse(password, out _) == false)
+
+                if (password.Length != 4 || int.TryParse(password, out int value)==false)
                 {
-                    Console.WriteLine("password should be only 4 digits");
-                    Console.WriteLine("Try Another Username..........." + "y/n");
+               
+                    switch (Selected)
+                    {
+                        case 1:
+                            Console.WriteLine("password should be only 4 digits");
+                            break;
+
+                        case 2:
+                            Console.WriteLine("okwuntughe kwesịrị ịbụ naanị nkeji anọ");
+                            break;
+
+                        case 3:
+                            Console.WriteLine("ọrọigbaniwọle yẹ ki o jẹ awọn nọmba 4 nikan");
+                            break;
+
+                        default: Console.WriteLine("Invalid Input"); 
+                            break;
+                    }
+
+                    Console.WriteLine("\n Try again.........y/n");
                     var option = Console.ReadLine();
+
                     switch (option)
                     {
                         case "y":
@@ -42,11 +122,51 @@ namespace ATM_app
                             break;
                     }
                 }
-                else if(User.ContainsKey(username))
-                {
-                    Console.WriteLine("username already exist");
 
-                    Console.WriteLine("Try Another Username..........." + "y/n");
+                else if(user.ContainsKey(username))
+                {
+
+                    switch (Selected)
+                    {
+                        case 1:
+                            Console.WriteLine("username already exist");
+                            break;
+
+                        case 2:
+                            Console.WriteLine("nwaa ọzọ \n gbiyanju lẹẹkansi.............y/n");
+                            break;
+
+                        case 3:
+                            Console.WriteLine("orukọ olumulo ti wa tẹlẹ \n aha njirimara adịlarị........y/n");
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Input");
+                            break;
+                    }
+
+
+                    switch (Selected)
+                    {
+                        case 1:
+                            Console.WriteLine("Try Another Username..........." + "y/n");
+                            break;
+
+                        case 2:
+                            Console.WriteLine("Gbalia aha njirimara ozo..........." + "y/n");
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Gbiyanju Orukọ olumulo miiran..........." + "y/n");
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid Input");
+                            return;
+                    }
+
+                    Console.WriteLine();
+                    Console.Clear();
+
                     var option = Console.ReadLine();
                     switch (option)
                     {
@@ -58,15 +178,14 @@ namespace ATM_app
                     }
                 }
                 else
-                {
-                    User.Add(username, password);
-                    Console.WriteLine("Account Created Successfully, you can Login now");
-                    break;
-                }
+                    {
+                        user.Add(username, password);
+                        Console.WriteLine("Account Created Successfully, you can Login now");
+                        break;
+                    }
             }
             var loginUSer = new LoginUser();
-            loginUSer.LoginRegisteredUser();
-
+            loginUSer.LoginRegisteredUser(user);
         }
     }
 }
