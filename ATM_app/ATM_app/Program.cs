@@ -10,8 +10,8 @@ namespace ATM_app
     {
         static void Main(string[] args)
         {
-            CreateNewUser loginUser = new CreateNewUser();
-            loginUser.CreateUser();
+
+            CreateNewUser.UserOption();
         }
     }
 }

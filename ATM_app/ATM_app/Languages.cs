@@ -11,13 +11,11 @@ namespace ATM_app
     {
 
         public BankAccount account = new BankAccount(LoginUser.UserName);
+        
+        private int SelectedLanguage = CreateNewUser._Selected;
         public void Language()
         {
             
-            Console.WriteLine("choose a language:\n\n Enter 1 for English\n pịa 2 maka igbo\n te 3 fun yoruba");
-            int SelectedLanguage = int.Parse(Console.ReadLine());
-
-            Console.WriteLine(SelectedLanguage);
             switch (SelectedLanguage)
             {
                 case 1:

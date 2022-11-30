@@ -8,13 +8,10 @@ namespace ATM_app
         public static string UserName;
 
         public Dictionary<string, string> user = CreateNewUser.user;
-
+        private int Selected = CreateNewUser._Selected;
         public void LoginRegisteredUser(Dictionary<string, string> user)
         {
             Console.Clear();
-            Console.WriteLine("  choose a language to login:\n\n  Enter 1 for English\n\n  pia 2 maka igbo\n\n  te 3 fun yoruba");
-            var Selected = int.Parse(Console.ReadLine());
-
 
             switch (Selected)
             {

@@ -14,17 +14,14 @@ namespace ATM_app
             { "germaine", "1234"}, {"ositadimma", "3456"}
         };
 
-        public int LengthOfPassword = 4;
+        private static int _LengthOfPassword = 4;
+        public static int _Selected;
 
-        public void CreateUser()
-        {
-            Console.WriteLine("\n  choose a language to create new user:\n\n  Enter 1 for English\n\n  pia 2 maka igbo\n\n  te 3 fun yoruba");
-            Console.WriteLine();
+        public static void CreateUser()
+        {          
+            Console.Clear();
 
-            var selectLanguage = int.Parse(Console.ReadLine());
-            var Selected = selectLanguage;
-
-            switch (Selected)
+            switch (_Selected)
             {
                 case 1:
                     Console.WriteLine("Create a new account ");
@@ -42,8 +39,7 @@ namespace ATM_app
                     return;
             }
 
-            Console.Clear();
-            switch (Selected)
+            switch (_Selected)
             {
                 case 1:
                     Console.WriteLine("Enter username");
@@ -63,7 +59,7 @@ namespace ATM_app
 
             string username = Console.ReadLine();
 
-            switch (Selected)
+            switch (_Selected)
             {
                 case 1:
                     Console.WriteLine("Enter password");
@@ -89,10 +85,10 @@ namespace ATM_app
             while (validation)
             {
 
-                if (password.Length != 4 || int.TryParse(password, out int value)==false)
+                if (password.Length != _LengthOfPassword || int.TryParse(password, out int value)==false)
                 {
                
-                    switch (Selected)
+                    switch (_Selected)
                     {
                         case 1:
                             Console.WriteLine("password should be only 4 digits");
@@ -126,7 +122,7 @@ namespace ATM_app
                 else if(user.ContainsKey(username))
                 {
 
-                    switch (Selected)
+                    switch (_Selected)
                     {
                         case 1:
                             Console.WriteLine("username already exist");
@@ -145,7 +141,7 @@ namespace ATM_app
                     }
 
 
-                    switch (Selected)
+                    switch (_Selected)
                     {
                         case 1:
                             Console.WriteLine("Try Another Username..........." + "y/n");
@@ -187,5 +183,51 @@ namespace ATM_app
             var loginUSer = new LoginUser();
             loginUSer.LoginRegisteredUser(user);
         }
+
+        public static void UserOption()
+        {
+            Console.WriteLine("\n  choose a language to continue:\n\n  Enter 1 for English\n\n  pia 2 maka igbo\n\n  te 3 fun yoruba");
+            Console.WriteLine();
+
+            var selectLanguage = int.Parse(Console.ReadLine());
+           _Selected = selectLanguage;
+
+           
+            switch (_Selected)
+            {
+                case 1:
+                    Console.WriteLine("Already hav an account?...........y/n");
+                    break;
+
+                case 2:
+                    Console.WriteLine("enweela akaụntụ ?..........." + "y/n");
+                    break;
+
+                case 3:
+                    Console.WriteLine("ti ni iroyin tẹlẹ?..........." + "y/n");
+                    break;
+
+                default:
+                    UserOption();
+                    return;
+            }
+
+            var payoption = Console.ReadLine();
+
+            switch (payoption)
+            {
+                case "y":
+                    var loginUSer = new LoginUser();
+                    loginUSer.LoginRegisteredUser(user);
+                    break;
+                case "n":
+                    CreateUser();
+                    break;
+                default:
+                    Console.WriteLine("invalid input"); UserOption();
+                    break;
+            }
+        }
     }
+
 }
