@@ -1,0 +1,8 @@
+C:\Users\user\source\repos\ATM_app\ATM_app\bin\Debug\ATM_app.exe.config
+C:\Users\user\source\repos\ATM_app\ATM_app\bin\Debug\ATM_app.exe
+C:\Users\user\source\repos\ATM_app\ATM_app\bin\Debug\ATM_app.pdb
+C:\Users\user\source\repos\ATM_app\ATM_app\obj\Debug\ATM_app.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\ATM_app\ATM_app\obj\Debug\ATM_app.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\source\repos\ATM_app\ATM_app\obj\Debug\ATM_app.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ATM_app\ATM_app\obj\Debug\ATM_app.exe
+C:\Users\user\source\repos\ATM_app\ATM_app\obj\Debug\ATM_app.pdb
